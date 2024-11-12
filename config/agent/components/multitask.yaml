@@ -1,0 +1,38 @@
+# @package agent.multitask
+
+num_envs: ${env.num_envs}
+should_use_disentangled_alpha: False
+should_use_task_encoder: False
+should_use_task_onehot: False
+should_use_multi_head_policy: False
+should_use_disjoint_policy: False # experimental. This variable is ignored if should_use_multi_head_policy is set to False.
+should_use_pcgrad: False
+clip_grad_norm: 0.1
+use_loss_threshold: True
+mask_loss_step: 100000
+mask_loss_threshold: 3000
+max_alpha: 1.0
+task_encoder_cfg:
+  model_cfg:
+    _target_: mtrl.agent.components.task_encoder.TaskEncoder
+    pretrained_embedding_cfg:
+      should_use: False
+      path_to_load_from: ${setup.base_path}/metadata/task_embedding/roberta_small/${env.name}.json
+      ordered_task_list: ${env.ordered_task_list}
+    num_embeddings: ${agent.multitask.num_envs}
+    embedding_dim: 128
+    hidden_dim: 128
+    num_layers: 2
+    output_dim: 128
+  optimizer_cfg: ${agent.optimizers.actor}
+multi_head_policy_cfg:
+  mask_cfg: ${agent.mask}
+actor_cfg:
+  should_condition_model_on_task_info: False
+  should_condition_encoder_on_task_info: True
+  should_concatenate_task_info_with_encoder: True
+  soft_modularization_cfg: ${agent.sm_component}
+  soft_modularization_should_use: False
+  paco_cfg: ${agent.paco_component}
+  paco_should_use: False
+critic_cfg: ${agent.multitask.actor_cfg}

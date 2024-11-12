@@ -1,0 +1,7 @@
+# @package agent.guide_critic
+
+_target_: mtrl.agent.components.guide_critic.GuideCritic
+hidden_dim: ${agent.guide_actor.hidden_dim}
+num_layers: ${agent.guide_actor.num_layers}
+guide_encoder_cfg: ${agent.guide_encoder}
+guide_multitask_cfg: ${agent.guide_multitask}

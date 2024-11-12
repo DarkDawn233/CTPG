@@ -1,0 +1,39 @@
+# @package _group_
+name: metaworld-mt10
+num_envs: 10
+benchmark:
+  _target_: metaworld.MT10
+random_goal: True
+dummy:
+  _target_: metaworld.MT1
+  env_name: pick-place-v2
+description:
+  reach-v2: Reach a goal position. Randomize the goal positions.
+  push-v2: Push the puck to a goal. Randomize puck and goal positions.
+  pick-place-v2: Pick and place a puck to a goal. Randomize puck and goal positions.
+  door-open-v2: Open a door with a revolving joint. Randomize door positions.
+  drawer-open-v2: Open a drawer. Randomize drawer positions.
+  drawer-close-v2: Push and close a drawer. Randomize the drawer positions.
+  button-press-topdown-v2: Press a button from the top. Randomize button positions.
+  peg-insert-side-v2: Insert a peg sideways. Randomize peg and goal positions.
+  window-open-v2: Push and open a window. Randomize window positions.
+  window-close-v2: Push and close a window. Randomize window positions.
+ordered_task_list: # will be auto-populated.
+wrappers:
+  scale_reward_wrapper:
+    reward_scale: 0.1
+  max_step_wrapper:
+    max_step: 200
+network:
+  hidden_dim: 400
+  num_layers: 5
+  paco_hidden_features: 400
+  paco_num_of_param_set: 5
+  paco_num_layers: 3
+  sm_hidden_features: 400
+  sm_hidden_layers: 2
+  sm_emb_hidden_layers: 1
+  sm_num_layers: 4
+  sm_num_modules: 4
+  sm_module_hidden_features: 128
+  sm_gating_hidden_features: 256

@@ -1,0 +1,5 @@
+# @package _group_.guide_actor
+
+_target_: torch.optim.Adam
+lr: 1e-4
+betas: [0.9, 0.999]

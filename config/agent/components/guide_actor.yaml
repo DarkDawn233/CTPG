@@ -1,0 +1,8 @@
+# @package agent.guide_actor
+
+_target_: mtrl.agent.components.guide_actor.GuideActor
+num_layers: ${env.network.num_layers}
+hidden_dim: ${env.network.hidden_dim}
+log_std_bounds: [-20, 2]
+guide_encoder_cfg: ${agent.guide_encoder}
+guide_multitask_cfg: ${agent.guide_multitask}

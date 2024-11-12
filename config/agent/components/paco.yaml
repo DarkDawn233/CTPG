@@ -1,0 +1,6 @@
+# @package agent.paco_component
+
+_target_: mtrl.agent.components.paco_net.PaCoNet
+hidden_features: ${env.network.paco_hidden_features}
+num_of_param_set: ${env.network.paco_num_of_param_set}
+num_layers: ${env.network.paco_num_layers}

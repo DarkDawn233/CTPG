@@ -1,0 +1,33 @@
+defaults:
+  - setup: mtrl
+  - experiment: mtrl
+  - agent: sac
+  - agent/components: actor
+  - agent/components: critic
+  - agent/components: encoder
+  - agent/components: guide_actor
+  - agent/components: guide_critic
+  - agent/components: guide_encoder
+  - agent/components: transition_model
+  # - agent/components: task_to_encoder_cluster
+  - agent/components: mask
+  - agent/components: multitask
+  - agent/components: guide_multitask
+  - agent/components: transition_model
+  - agent/components: task_to_encoder_cluster
+  - agent/optimizers: actor
+  - agent/optimizers: alpha
+  - agent/optimizers: critic
+  - agent/optimizers: encoder
+  - agent/optimizers: guide_actor
+  - agent/optimizers: guide_alpha
+  - agent/optimizers: guide_critic
+  - agent/optimizers: guide_encoder
+  - agent/optimizers: decoder
+  - agent/components: sm # soft_modularization
+  - agent/components: paco # paco
+  - env: ???
+  - replay_buffer: mtrl
+  - logger: mtrl
+  - metrics: mtrl
+  - logbook: mtrl

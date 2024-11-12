@@ -1,0 +1,39 @@
+# @package _group_
+name: guide_sac
+
+encoder_feature_dim: 50
+guide_encoder_feature_dim: 50
+num_layers: 0
+num_filters: 0
+
+builder:
+  _target_: mtrl.agent.guide_sac.Agent
+  # obs_shape
+  # action_shape
+  # device
+  actor_cfg: ${agent.actor}
+  critic_cfg: ${agent.critic}
+  guide_actor_cfg: ${agent.guide_actor}
+  guide_critic_cfg: ${agent.guide_critic}
+  multitask_cfg: ${agent.multitask}
+  guide_multitask_cfg: ${agent.guide_multitask}
+  alpha_optimizer_cfg: ${agent.optimizers.alpha}
+  actor_optimizer_cfg: ${agent.optimizers.actor}
+  critic_optimizer_cfg: ${agent.optimizers.critic}
+  guide_alpha_optimizer_cfg: ${agent.optimizers.guide_alpha}
+  guide_actor_optimizer_cfg: ${agent.optimizers.guide_actor}
+  guide_critic_optimizer_cfg: ${agent.optimizers.guide_critic}
+  discount: 0.99
+  init_temperature: 1.0
+  guide_init_temperature: 1.0
+  actor_update_freq: 1
+  critic_tau: 0.01
+  critic_target_update_freq: 1
+  encoder_tau: 0.05
+  guide_actor_update_freq: 1
+  guide_critic_tau: 0.01
+  guide_critic_target_update_freq: 1
+  guide_encoder_tau: 0.05
+  loss_reduction: alpha_weight
+  guide_loss_reduction: mean
+  guide_hindsight: False

@@ -1,0 +1,13 @@
+# @package agent.sm_component
+
+_target_: mtrl.agent.components.soft_modularization.SoftModularizedMLP
+task_num: ${env.num_envs}
+hidden_features: ${env.network.sm_hidden_features}
+hidden_layers: ${env.network.sm_hidden_layers}
+emb_hidden_layers: ${env.network.sm_emb_hidden_layers}
+num_layers: ${env.network.sm_num_layers}
+num_modules: ${env.network.sm_num_modules}
+module_hidden_features: ${env.network.sm_module_hidden_features}
+gating_hidden_features: ${env.network.sm_gating_hidden_features}
+cond_obs: True
+bias: True
